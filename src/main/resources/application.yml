@@ -1,5 +1,5 @@
 spring:
   application:
     name: jwt-security
-    profiles:
-      active: dev
+  profiles:
+    active: dev
