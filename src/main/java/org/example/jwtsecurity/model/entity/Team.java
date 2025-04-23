@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity // JPA -> ID
-@Data   // Lombok
+@Data // Lombok
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -17,5 +17,4 @@ public class Team {
     private String manager;
     @Column(nullable = false)
     private String captain;
-
 }
