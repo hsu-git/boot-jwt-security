@@ -26,7 +26,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         if (header != null && header.startsWith("Bearer ")) {
             String token = header.substring(7); // "Bearer "을 삭제..
             if (jwtTokenProvider.validateToken(token)) {
-                Authentication auth = new UsernamePasswordAuthenticationToken();
+                Authentication auth = jwtTokenProvider.getAuthentication(token);
                 SecurityContextHolder.getContext().setAuthentication(auth);
                 // Controller -> Authentication
             }
