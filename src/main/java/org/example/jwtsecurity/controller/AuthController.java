@@ -1,6 +1,7 @@
 package org.example.jwtsecurity.controller;
 
 import org.apache.coyote.BadRequestException;
+import org.example.jwtsecurity.model.dto.AuthTokenDTO;
 import org.example.jwtsecurity.model.dto.UserRequestDTO;
 import org.example.jwtsecurity.service.AccountService;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,11 @@ public class AuthController {
     public ResponseEntity<Void> register(@RequestBody UserRequestDTO dto) throws BadRequestException {
         accountService.register(dto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @PostMapping("/token")
+    public ResponseEntity<AuthTokenDTO> login(@RequestBody UserRequestDTO dto) throws BadRequestException {
+
     }
 
     @ExceptionHandler(BadRequestException.class)
